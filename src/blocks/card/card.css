@@ -4,14 +4,18 @@
     block-size: 100px;
     inline-size: 100px;
     border: 1px solid black;
+    border-radius: 5px;
     cursor: pointer;
     user-select: none;
     transform-style: preserve-3d;
+    transform: rotateX(0deg);
+    transition: transform .3s;
 }
 
 .card-flip {
     transform: rotateX(180deg);
     transition: transform 1.5s;
+    pointer-events: none;
 }
 
 .card-flip-back {

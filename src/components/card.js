@@ -31,6 +31,10 @@ function thisCardsSame(status) {
         cards.forEach((item) => {
             item.classList.toggle('card-flip');
             item.classList.toggle('disabled');
+            setTimeout(() => {
+                item.querySelector('.card__img').setAttribute('src', '../src/img/cheater.png');
+                item.querySelector('.card__img').setAttribute('alt', 'cheater');
+            }, 2000)
         })
     }
     document.querySelector('.play-ground').classList.toggle('disabled');
