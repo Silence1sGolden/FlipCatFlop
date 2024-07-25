@@ -1,0 +1,4 @@
+.card__side_back {
+    background-color: #e1e1ff;
+    backface-visibility: hidden;
+}

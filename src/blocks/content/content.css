@@ -1,0 +1,11 @@
+.content {
+    display: flex;
+}
+
+.content:has(.content__form) {
+    margin-block-start: calc(50vh - 200px);
+}
+
+.content:has(.play-ground) {
+    margin-block-start: calc(50vh - 350px);
+}

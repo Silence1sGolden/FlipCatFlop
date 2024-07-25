@@ -1,0 +1,18 @@
+.form__label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: 'Lato';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.form__label:has(.form__radio) {
+    flex-direction: row;
+}
+
+.form__label:has(.form__radio) {
+    font-size: 16px;
+    font-weight: 300;
+}

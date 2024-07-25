@@ -1,0 +1,5 @@
+.card__side_front {
+    background-color: white;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+}

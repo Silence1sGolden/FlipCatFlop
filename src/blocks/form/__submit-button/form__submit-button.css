@@ -1,0 +1,26 @@
+.form__submit-button {
+    font-family: 'Lato';
+    font-size: 18px;
+    font-weight: 300;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: background-color .3s, color .3s;
+}
+
+.form__submit-button:hover {
+    background-color: #c8c8ff;
+}
+
+.form__submit-button:active {
+    background-color: #9090ff;
+}
+
+.form__submit-button:focus {
+    outline: 0;
+}
+
+.form__submit-button:focus-visible {
+    outline: 1px solid blue;
+    outline-offset: 1px;
+}

@@ -1,0 +1,21 @@
+.form__radio:checked + .form__radio-pseudo {
+    background-color: #ff8080;
+}
+
+.form__radio-pseudo {
+    position: absolute;
+    inset-inline-start: 20%;
+    inset-block-start: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    font-size: 26px;
+    font-weight: 900;
+    border: 1px solid black;
+    border-radius: 100%;
+    block-size: 20px;
+    inline-size: 20px;
+    user-select: none;
+    transition: background-color .3s;
+}

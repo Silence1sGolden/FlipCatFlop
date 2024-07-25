@@ -1,0 +1,19 @@
+{
+  "name": "flipcatflop",
+  "version": "1.0.0",
+  "description": "Game about funny cats. Pet Project.",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silence1sGolden/FlipCatFlop.git"
+  },
+  "author": "mute",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Silence1sGolden/FlipCatFlop/issues"
+  },
+  "homepage": "https://github.com/Silence1sGolden/FlipCatFlop#readme"
+}

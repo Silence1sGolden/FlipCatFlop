@@ -1,0 +1,9 @@
+.card__side {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 100%;
+    inline-size: 100%;
+}

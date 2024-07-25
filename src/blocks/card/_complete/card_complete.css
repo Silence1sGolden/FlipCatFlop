@@ -1,0 +1,6 @@
+.card_complete {
+    background-color: #5fd25f;
+    pointer-events: none;
+    transform: rotateX(540deg);
+    transition: background-color .5s, transform .5s;
+}

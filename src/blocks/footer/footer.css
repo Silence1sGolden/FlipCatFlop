@@ -1,0 +1,8 @@
+.footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    inline-size: 100%;
+    display: flex;
+    padding: 50px;
+}
