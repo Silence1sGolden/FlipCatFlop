@@ -1,4 +1,4 @@
-# FlipCatFlop
+# [FlipCatFlop](https://silence1sgolden.github.io/FlipCatFlop/)
 
 ## (RUS) Игра в стиле 'Найди пару'
 
