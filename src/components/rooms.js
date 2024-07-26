@@ -1,3 +1,6 @@
+import flopImg from '../img/flop.png';
+const flop = flopImg;
+
 function enterGameRoom() {
     const form = document.querySelector('.form');
     form.remove();
@@ -17,7 +20,7 @@ function createGameRoom(playGroundSize, openCard, gameCards) {
 
     for(let i = 0; i < playGroundSize * 2; i++) {
         const card = cardElement.cloneNode(true);
-        card.querySelector('.card__img').setAttribute('src', '../src/img/cheater.png');
+        card.querySelector('.card__img').setAttribute('src', flop);
         card.querySelector('.card__img').setAttribute('alt', 'cheater');
         card.addEventListener('click', (evt) => {
             openCard(evt);

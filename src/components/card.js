@@ -1,43 +1,40 @@
+import flopImg from '../img/flop.png';
+const flop = flopImg;
+
 function openCard(evt) {
     const card = evt.target.closest('.card');
-    card.classList.toggle('card-flip');
-    card.classList.toggle('disabled');
+    card.classList.add('card-flip');
     counterCard();
 }
 
 function counterCard() {
     const cards = document.querySelectorAll('.card-flip');
     if (cards.length === 2) {
-        document.querySelector('.play-ground').classList.toggle('disabled');
+        document.querySelector('.play-ground').classList.add('disabled');
         setTimeout(() => {
-            if (cards[0].querySelector('.card__img').getAttribute('alt') === cards[1].querySelector('.card__img').getAttribute('alt')) {
-                thisCardsSame(true);
+            if (cards[0].querySelector('.backside').getAttribute('alt') === cards[1].querySelector('.backside').getAttribute('alt')) {
+                thisCardsSame(cards, true);
             } else {
-                thisCardsSame(false);
+                thisCardsSame(cards, false);
             }
-        }, 2000)
+            document.querySelector('.play-ground').classList.remove('disabled');
+        }, 1500)
     }
 }
 
-function thisCardsSame(status) {
-    const cards = document.querySelectorAll('.card-flip');
+function thisCardsSame(cards, status) {
     if (status) {
         cards.forEach((item) => {
-            item.classList.toggle('card-flip');
-            item.classList.toggle('disabled');
-            item.classList.toggle('card_complete');
+            item.classList.remove('card-flip');
+            item.classList.add('card_complete');
         })
     } else {
         cards.forEach((item) => {
-            item.classList.toggle('card-flip');
-            item.classList.toggle('disabled');
-            setTimeout(() => {
-                item.querySelector('.card__img').setAttribute('src', '../src/img/cheater.png');
-                item.querySelector('.card__img').setAttribute('alt', 'cheater');
-            }, 2000)
+            item.classList.remove('card-flip');
+            item.querySelector('.backside').setAttribute('src', flop);
+            item.querySelector('.backside').setAttribute('alt', 'flip');
         })
     }
-    document.querySelector('.play-ground').classList.toggle('disabled');
 }
 
 export {

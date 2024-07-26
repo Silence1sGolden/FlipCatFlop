@@ -1,4 +1,6 @@
-import { enterGameRoom, createGameRoom, makeCardsRandom, fillPlayingCards } from "./components/rooms.js";
+import './index.css';
+
+import { enterGameRoom, createGameRoom, fillPlayingCards } from "./components/rooms.js";
 import { cardsList } from "./components/cardsList.js";
 import { openCard } from "./components/card.js";
 

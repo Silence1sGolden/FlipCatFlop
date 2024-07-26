@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlipFlop</title>
-    <link rel="stylesheet" href="./src/index.css">
 </head>
 
 <body>
@@ -36,7 +35,7 @@
                     <span class="form__radio-pseudo"></span>
                 </label>
             </fieldset>
-            <input class="form__submit-button" type="submit" value="Let's go!" />
+            <input class="form__submit-button" type="submit" value="Play!" />
         </form>
     </main>
     <footer class="footer">
@@ -45,14 +44,13 @@
     <template id="card">
         <div class="card">
             <div class="card__side card__side_front">
-                <img class="card__img" src="" alt="">
+                <img class="card__img backside" src="" alt="">
             </div>
             <div class="card__side card__side_back">
-                <p class="card__flipflop">FLIPFLOP</p>
+                <img class="card__img" src="<%=require('../src/img/flip.png')%>" alt="flip">
             </div>
         </div>
     </template>
-    <script type="module" src="./src/index.js"></script>
 </body>
 
 </html>

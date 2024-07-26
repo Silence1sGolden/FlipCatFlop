@@ -21,7 +21,6 @@
 @import url('./blocks/card/__side/card__side.css');
 @import url('./blocks/card/__side/_back/card__side_back.css');
 @import url('./blocks/card/__side/_front/card__side_front.css');
-@import url('./blocks/card/__flipflop/card__flipflop.css');
 @import url('./blocks/disabled/disabled.css');
 @import url('./blocks/card/_complete/card_complete.css');
 @import url('./blocks/form/_warning-alert/card_warning-alert.css');
