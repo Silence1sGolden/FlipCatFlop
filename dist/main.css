@@ -1,0 +1,282 @@
+* {
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    display: flex;
+    padding: 30px;
+}
+.header__title {
+    margin: 0 auto;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 36px;
+}
+@font-face {
+    font-family: "Lato";
+    src: url(9d883d540ee2b4de8024.ttf) format("ttf");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(c7400fcad9e48ca9043f.ttf) format("ttf");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(636be8de934918e38ed9.ttf) format("ttf");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(57dee8aface5572f9101.ttf) format("ttf");
+    font-weight: 900;
+    font-display: swap;
+}
+.content {
+    display: flex;
+}
+
+.content:has(.content__form) {
+    margin-block-start: calc(50vh - 200px);
+}
+
+.content:has(.play-ground) {
+    margin-block-start: calc(50vh - 350px);
+}
+.content__form {
+    margin: 0 auto;
+}
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+.form__label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: 'Lato';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.form__label:has(.form__radio) {
+    flex-direction: row;
+}
+
+.form__label:has(.form__radio) {
+    font-size: 16px;
+    font-weight: 300;
+}
+.form__input {
+    padding: 3px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 1px solid black;
+}
+
+.form__input::placeholder {
+    color: #ff8080;
+}
+
+.form__input:focus {
+    outline: none;
+}
+
+.form__input:focus-visible {
+    background-color: #e1e1ff;
+    outline: 1px solid blue;
+    outline-offset: 1px;
+}
+.form__fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-block-start: 5px;
+    border: 0;
+}
+.form__fieldset-title {
+    font-family: 'Lato';
+    font-size: 20px;
+    font-weight: 400;
+}
+.form__radio {
+    position: relative;
+}
+
+.form__radio:focus {
+    outline: none
+}
+
+.form__label:has(.form__radio:focus-visible) {
+    outline: 1px solid blue;
+    outline-offset: 1px;
+}
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+.form__radio:checked + .form__radio-pseudo {
+    background-color: #ff8080;
+}
+
+.form__radio-pseudo {
+    position: absolute;
+    inset-inline-start: 20%;
+    inset-block-start: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    font-size: 26px;
+    font-weight: 900;
+    border: 1px solid black;
+    border-radius: 100%;
+    block-size: 20px;
+    inline-size: 20px;
+    user-select: none;
+    transition: background-color .3s;
+}
+.form__submit-button {
+    font-family: 'Lato';
+    font-size: 18px;
+    font-weight: 300;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: background-color .3s, color .3s;
+}
+
+.form__submit-button:hover {
+    background-color: #c8c8ff;
+}
+
+.form__submit-button:active {
+    background-color: #9090ff;
+}
+
+.form__submit-button:focus {
+    outline: 0;
+}
+
+.form__submit-button:focus-visible {
+    outline: 1px solid blue;
+    outline-offset: 1px;
+}
+.footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    inline-size: 100%;
+    display: flex;
+    padding: 50px;
+}
+.footer__author {
+    margin: 0 auto;
+    font-family: 'Lato';
+    font-size: 26px;
+    font-weight: 700;
+}
+.play-ground {
+    margin: 0 auto;
+    display: grid;
+    max-inline-size: 700px;
+    gap: 20px;
+}
+
+.play-ground_size-small {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.play-ground_size-big {
+    grid-template-columns: repeat(5, 1fr);
+}
+.card {
+    position: relative;
+    display: flex;
+    block-size: 100px;
+    inline-size: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg);
+    transition: transform .3s;
+}
+
+.card-flip {
+    transform: rotateX(180deg);
+    transition: transform 1.5s;
+    pointer-events: none;
+}
+
+.card-flip-back {
+    transform: rotateX(360deg);
+    transition: transform 1.5s;
+}
+.card__img {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.card__side {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 100%;
+    inline-size: 100%;
+    border-radius: 5px;
+}
+.card__side_back {
+    background-color: #e1e1ff;
+    backface-visibility: hidden;
+}
+.card__side_front {
+    background-color: white;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+}
+.disabled {
+    pointer-events: none;
+    cursor: none;
+}
+.card_complete {
+    background-color: #5fd25f;
+    pointer-events: none;
+    transform: rotateX(540deg);
+    transition: background-color .5s, transform .5s;
+}
+.form:before {
+    content: 'WARNING! The game works stably only on computers';
+    color: red;
+    position: absolute;
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 14px;
+    inset-block-end: -45px;
+    inset-inline-start: 0px;
+    max-width: 225px;
+}
+
