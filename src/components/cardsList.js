@@ -11,6 +11,12 @@ import kitty_10 from '../img/kitty-10.png';
 import kitty_11 from '../img/kitty-11.png';
 import kitty_12 from '../img/kitty-12.png';
 import kitty_13 from '../img/kitty-13.png';
+import kitty_14 from '../img/kitty-14.png';
+import kitty_15 from '../img/kitty-15.png';
+import kitty_16 from '../img/kitty-16.png';
+import kitty_17 from '../img/kitty-17.png';
+import kitty_18 from '../img/kitty-18.png';
+import kitty_19 from '../img/kitty-19.png';
 
 export const cardsList = [
   {
@@ -64,5 +70,29 @@ export const cardsList = [
   {
     name: 'kitty-13',
     src: kitty_13
+  },
+  {
+    name: 'kitty-14',
+    src: kitty_14
+  },
+  {
+    name: 'kitty-15',
+    src: kitty_15
+  },
+  {
+    name: 'kitty-16',
+    src: kitty_16
+  },
+  {
+    name: 'kitty-17',
+    src: kitty_17
+  },
+  {
+    name: 'kitty-18',
+    src: kitty_18
+  },
+  {
+    name: 'kitty-19',
+    src: kitty_19
   }
 ];

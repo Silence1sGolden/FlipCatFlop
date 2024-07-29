@@ -1,8 +1,12 @@
 .form {
-    position: relative;
+    inline-size: 300px;
+    block-size: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
     border: 1px solid black;
-    padding: 10px;
+    padding: 20px 10px;
+    background-color: #FFDFD6;
 }

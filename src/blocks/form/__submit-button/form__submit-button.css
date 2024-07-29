@@ -1,19 +1,23 @@
 .form__submit-button {
-    font-family: 'Lato';
-    font-size: 18px;
-    font-weight: 300;
-    background-color: white;
-    color: black;
+    inline-size: 100%;
+    padding: 5px;
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: #E3A5C7;
+    color: black;
+    font-family: 'Lato';
+    font-size: 28px;
+    font-weight: 300;
     transition: background-color .3s, color .3s;
 }
 
 .form__submit-button:hover {
-    background-color: #c8c8ff;
+    background-color: #B692C2;
+    cursor: pointer;
 }
 
 .form__submit-button:active {
-    background-color: #9090ff;
+    background-color: #694F8E;
 }
 
 .form__submit-button:focus {
@@ -21,6 +25,6 @@
 }
 
 .form__submit-button:focus-visible {
-    outline: 1px solid blue;
+    outline: 1px solid #694F8E;
     outline-offset: 1px;
 }

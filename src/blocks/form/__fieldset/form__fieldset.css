@@ -1,7 +1,0 @@
-.form__fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-block-start: 5px;
-    border: 0;
-}

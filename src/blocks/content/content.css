@@ -1,9 +1,13 @@
 .content {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .content:has(.content__form) {
-    margin-block-start: calc(50vh - 200px);
+    margin-block-start: calc(50vh - 300px);
 }
 
 .content:has(.play-ground) {

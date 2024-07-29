@@ -9,7 +9,7 @@ function enterGameRoom() {
 function createGameRoom(playGroundSize, openCard, gameCards) {
     const playGround = document.createElement('div');
     playGround.classList.add('play-ground');
-    if (playGroundSize === '8') {
+    if (playGroundSize === '6') {
         playGround.classList.add('play-ground_size-small');
     } else {
         playGround.classList.add('play-ground_size-big');
@@ -68,24 +68,21 @@ function makeCardsRandom(cards, times) {
 }
 
 function fillPlayingCards(cardList, playGroundSize) {
-    const arr = [];
-    const a = new Set();
+    const arr = cardList;
+    const result = [];
+
     for (let i = 0; i < playGroundSize; i++) {
-        const card = getRandomCard(cardList);
-        if (a.has(card.name)) {
-            --i;
-            continue;
-        } else {
-            a.add(card.name);
-            arr.push(card, card);
-        }
+        const num = getRandomNum(arr.length - 1);
+        const card = arr[num];
+        result.push(card, card);
+        arr.splice(num, 1);
     }
-    
-    return makeCardsRandom(arr, Math.round(Math.random() * (5 - 2) + 2));;
+
+    return result;
 }
 
-function getRandomCard(cardList) {
-    return cardList[Math.round(Math.random() * (12 - 0) + 0)];
+function getRandomNum(max) {
+    return Math.round(Math.random() * (max - 0) + 0)
 }
 
 export {

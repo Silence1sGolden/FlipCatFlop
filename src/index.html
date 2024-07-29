@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,31 +10,34 @@
 <body>
     <header class="header">
         <h1 class="header__title">FLIPFLOP</h1>
+        <span class="warning-alert">The game is displayed well only on PC</span>
     </header>
     <main class="content">
-        <form name="start-form" class="form content__form">
-            <label class="form__label">
-                Your nickname
-                <input class="form__input" name="nickname" type="text" placeholder="like Jack" required autocomplete="off"/>
-            </label>
-            <fieldset class="form__fieldset">
-                <p class="form__fieldset-title">Select size of playground</p>
-                <label class="form__label">
-                    4x4
-                    <input class="form__radio visually-hidden" name="place" type="radio" value="8" checked/>
-                    <span class="form__radio-pseudo"></span>
-                </label>
-                <label class="form__label">
-                    4x5
-                    <input class="form__radio visually-hidden" name="place" type="radio" value="10" />
-                    <span class="form__radio-pseudo"></span>
-                </label>
-                <label class="form__label">
-                    4x6
-                    <input class="form__radio visually-hidden" name="place" type="radio" value="12" />
-                    <span class="form__radio-pseudo"></span>
-                </label>
-            </fieldset>
+        <form class="form content__form" name="start-form">
+            <p class="form__title">Select difficult</p>
+            <ul class="form__level-difficult-list">
+                <li class="form__item">
+                    <label class="form__label">
+                        <img class="form__img" src="<%=require('./img/easy.png')%>" alt="easy" draggable="false">
+                        <input class="form__radio visually-hidden" name="place" type="radio" value="6" checked/>
+                        Easy
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label class="form__label">
+                        <img class="form__img" src="<%=require('./img/medium.png')%>" alt="medium" draggable="false">
+                        <input class="form__radio visually-hidden" name="place" type="radio" value="12"/>
+                        Medium
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label class="form__label" for="hard">
+                        <img class="form__img" src="<%=require('./img/hard.png')%>" alt="hard" draggable="false">
+                        <input class="form__radio visually-hidden" name="place" type="radio" value="18" id="hard"/>
+                        Hard
+                    </label>
+                </li>
+            </ul>
             <input class="form__submit-button" type="submit" value="Play!" />
         </form>
     </main>

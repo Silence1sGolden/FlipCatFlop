@@ -1,0 +1,11 @@
+.form__img {
+    object-fit: contain;
+    border: 1px solid #B692C2;
+    border-radius: 5px;
+    transition: border-color .3s;
+    user-select: none;
+}
+
+.form__label:has(.form__radio:checked) .form__img {
+    border-color: black;
+}

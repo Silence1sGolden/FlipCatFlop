@@ -2,17 +2,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 5px;
     font-family: 'Lato';
     font-size: 20px;
     font-weight: 400;
+    color: #B692C2;
+    cursor: pointer;
+    user-select: none;
+    transition: color .3s;
 }
 
-.form__label:has(.form__radio) {
-    flex-direction: row;
-}
-
-.form__label:has(.form__radio) {
-    font-size: 16px;
-    font-weight: 300;
+.form__label:has(.form__radio:checked) {
+    cursor: auto;
+    color: black;
 }
