@@ -10,14 +10,14 @@ function openCard(evt) {
 function counterCard() {
     const cards = document.querySelectorAll('.card-flip');
     if (cards.length === 2) {
-        document.querySelector('.play-ground').classList.add('disabled');
+        document.querySelector('.playground').classList.add('disabled');
         setTimeout(() => {
             if (cards[0].querySelector('.backside').getAttribute('alt') === cards[1].querySelector('.backside').getAttribute('alt')) {
                 thisCardsSame(cards, true);
             } else {
                 thisCardsSame(cards, false);
             }
-            document.querySelector('.play-ground').classList.remove('disabled');
+            document.querySelector('.playground').classList.remove('disabled');
         }, 1500)
     }
 }

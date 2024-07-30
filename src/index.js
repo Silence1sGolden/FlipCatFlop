@@ -1,16 +1,15 @@
 import './index.css';
 
-import { enterGameRoom, createGameRoom, fillPlayingCards } from "./components/rooms.js";
+import { createGameRoom, fillPlayingCards, createEntryForm } from "./components/rooms.js";
 import { cardsList } from "./components/cardsList.js";
 import { openCard } from "./components/card.js";
-
-const enterForm = document.forms['start-form'];
 let gameCards;
 
-enterForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
+createEntryForm(submitForm);
 
-    enterGameRoom();
-    gameCards = fillPlayingCards(cardsList, enterForm.place.value);
-    createGameRoom(enterForm.place.value, openCard, gameCards);
-})
+function submitForm(evt) {
+    evt.preventDefault();
+    const playGroundSize = document.forms['start-form'].place.value;
+    const gameCards = fillPlayingCards(cardsList, playGroundSize);
+    createGameRoom(playGroundSize, openCard, gameCards);
+}

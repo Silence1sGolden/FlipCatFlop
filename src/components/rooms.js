@@ -1,38 +1,83 @@
 import flopImg from '../img/flop.png';
 const flop = flopImg;
 
-function enterGameRoom() {
-    const form = document.querySelector('.form');
-    form.remove();
+function createEntryForm(submitForm) {
+    const entryForm = document.querySelector('#entry-form').content.cloneNode(true);
+    const header = document.querySelector('#header').content.cloneNode(true);
+    const footer = document.querySelector('#footer').content.cloneNode(true);
+
+    entryForm.querySelector('.form').addEventListener('submit', submitForm);
+
+    document.querySelector('.content').append(header, entryForm, footer);
+}
+
+function isMobile() {
+    return (window.innerWidth <= 375) ? true : false;
+}
+
+function clearContent() {
+    if (isMobile()) {
+        Array.from(document.querySelector('.content').children).forEach((item) => {
+            if (item.classList.contains('footer')
+                || item.classList.contains('header')
+                || item.classList.contains('playground')
+                || item.classList.contains('form')
+            ) {
+                item.remove();
+            }
+        })
+    } else {
+        Array.from(document.querySelector('.content').children).forEach((item) => {
+            if (item.classList.contains('playground') || item.classList.contains('form')) {
+                item.remove();
+            }
+        })
+    }
 }
 
 function createGameRoom(playGroundSize, openCard, gameCards) {
-    const playGround = document.createElement('div');
-    playGround.classList.add('play-ground');
-    if (playGroundSize === '6') {
-        playGround.classList.add('play-ground_size-small');
-    } else {
-        playGround.classList.add('play-ground_size-big');
-    }
-    const cardTemplate = document.querySelector('#card').content;
-    const cardElement = cardTemplate.querySelector('.card');
-    const cards = [];
+    clearContent();
 
-    for(let i = 0; i < playGroundSize * 2; i++) {
-        const card = cardElement.cloneNode(true);
-        card.querySelector('.card__img').setAttribute('src', flop);
-        card.querySelector('.card__img').setAttribute('alt', 'cheater');
-        card.addEventListener('click', (evt) => {
+    const playGroundElement = document.querySelector('#playground').content.cloneNode(true);
+    const playGround = playGroundElement.querySelector('.playground');
+    const playGroundHeader = playGround.querySelector('.playground-header');
+    const playGroundMenu = document.querySelector('#menu').content.cloneNode(true);
+    const playGroundPlace = playGround.querySelector('.playground__place');
+    const cardTemplate = document.querySelector('#card').content;
+
+    playGroundPlace.classList.add(getPlaceSize(playGroundSize));
+
+    if (isMobile()) {
+        playGround.append(playGroundMenu);
+    } else {
+        playGroundHeader.querySelector('.playground__header-item').before(playGroundMenu);
+    }
+
+    for (let i = 0; i < playGroundSize * 2; i++) {
+        const newCard = cardTemplate.cloneNode(true);
+        if (isMobile()) {
+            newCard.querySelector('.card').classList.add(getCardSize(playGroundSize));
+        }
+        newCard.querySelector('.card').addEventListener('click', (evt) => {
             openCard(evt);
             giveCardInformation(evt, gameCards);
         });
-        cards.push(card);
+        playGroundPlace.append(newCard);
     }
 
-    cards.forEach((item) => {
-        playGround.append(item);
-    })
     document.querySelector('.content').append(playGround);
+}
+
+function getPlaceSize(playGroundSize) {
+    if (playGroundSize == 6) return 'playground__place-s';
+    if (playGroundSize == 12) return 'playground__place-m';
+    if (playGroundSize == 18) return 'playground__place-l';
+}
+
+function getCardSize(playGroundSize) {
+    if (playGroundSize == 6) return 'card_large';
+    if (playGroundSize == 12) return 'card_medium';
+    if (playGroundSize == 18) return 'card_small';
 }
 
 function giveCardInformation(evt, gameCards) {
@@ -86,7 +131,7 @@ function getRandomNum(max) {
 }
 
 export {
-    enterGameRoom,
+    createEntryForm,
     createGameRoom,
     makeCardsRandom,
     fillPlayingCards
