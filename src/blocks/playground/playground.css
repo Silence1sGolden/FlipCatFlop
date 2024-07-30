@@ -3,9 +3,12 @@
     flex-direction: column;
     padding: 20px 10px;
     gap: 10px;
+    background-color: var(--dull-pink);
+    border: 1px solid var(--black);
+    border-radius: 5px;
 }
 
-@media (inline-size <= 375px) {
+@media (width <= 375px) {
     .playground {
         justify-content: space-between;
         gap: 0px;

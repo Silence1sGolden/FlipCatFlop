@@ -23,7 +23,7 @@
     transition: transform 1.5s;
 }
 
-@media (inline-size <= 375px) {
+@media (width <= 375px) {
     .card {
         inline-size: 0px;
         block-size: 0px;
