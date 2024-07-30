@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--black);
     padding: 20px 10px;
-    background-color: #FFDFD6;
+    background-color: var(--dull-pink);
 }

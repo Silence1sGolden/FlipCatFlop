@@ -1,0 +1,11 @@
+.playground__place-s {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+@media (inline-size <= 375px) {
+    .playground__place-s {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+}

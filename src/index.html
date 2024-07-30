@@ -8,12 +8,23 @@
 </head>
 
 <body>
-    <header class="header">
-        <h1 class="header__title">FLIPFLOP</h1>
-        <span class="warning-alert">The game is displayed well only on PC</span>
-    </header>
-    <main class="content">
-        <form class="form content__form" name="start-form">
+    <div class="content"></div>
+
+    <template id="header">
+        <div class="header">
+            <h1 class="header__title">FLIPFLOP</h1>
+            <span class="warning-alert">The game is displayed well only on PC</span>
+        </div>
+    </template>
+
+    <template id="footer">
+        <div class="footer">
+            <p class="footer__author">Created by mute.</p>
+        </div>
+    </template>
+
+    <template id="entry-form">
+        <form class="form" name="start-form">
             <p class="form__title">Select difficult</p>
             <ul class="form__level-difficult-list">
                 <li class="form__item">
@@ -38,12 +49,36 @@
                     </label>
                 </li>
             </ul>
-            <input class="form__submit-button" type="submit" value="Play!" />
+            <input class="button form__submit-button" type="submit" value="Play!" />
         </form>
-    </main>
-    <footer class="footer">
-        <p class="footer__author">Created by mute.</p>
-    </footer>
+    </template>
+
+    <template id="playground-header">
+        <div class="playground__header">
+            <div class="playground__header-item">
+                <h2 class="playground__header-title">Time</h2>
+                <p class="playground__header-text"></p>
+            </div>
+            <div class="playground__header-item">
+                <h2 class="playground__header-title">Cards</h2>
+                <p class="playground__header-text"></p>
+            </div>
+        </div>
+    </template>
+
+    <template>
+        <div class="playground">
+            <div class="playground__place"></div>
+        </div>
+    </template>
+
+    <template id="menu">
+        <div class="menu">
+            <button class="button menu__button">Menu</button>
+            <button class="button menu__button">Reset</button>
+        </div>
+    </template>
+
     <template id="card">
         <div class="card">
             <div class="card__side card__side_front">

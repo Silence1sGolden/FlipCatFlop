@@ -1,0 +1,4 @@
+.playground__place {
+    display: grid;
+    gap: 10px;
+}

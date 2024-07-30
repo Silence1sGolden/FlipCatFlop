@@ -1,0 +1,13 @@
+.play-ground {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 10px;
+}
+
+@media (inline-size <= 375px) {
+    .play-ground {
+        justify-content: space-between;
+        gap: 0px;
+    }
+}

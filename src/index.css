@@ -1,21 +1,44 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --dull-pink: #FFDFD6;
+    --light-purple: #E3A5C7;
+    --grey-brown-raspberry: #694F8E;
+    --very-light-purple: #B692C2;
+    --light-mallow: #e1e1ff;
+    --emerald: #5fd25f;
+
+    --main-font: 'Lato';
+}
+
 /* header */
 @import url('./blocks/header/header.css');
 @import url('./blocks/header/__title/header__title.css');
+@import url('./blocks/header/warning-alert/warning-alert.css');
 
 /* content */
 @import url('./blocks/content/content.css');
-@import url('./blocks/content/__form/content__form.css');
 
 /* form */
 @import url('./blocks/form/form.css');
 @import url('./blocks/form/__label/form__label.css');
-@import url('./blocks/form/__input/form__input.css');
 @import url('./blocks/form/__title/form__title.css');
 @import url('./blocks/form/__radio/form__radio.css');
 @import url('./blocks/form/__submit-button/form__submit-button.css');
 @import url('./blocks/form/__level-difficult-list/form__level-difficult-list.css');
 @import url('./blocks/form/__item/form__item.css');
 @import url('./blocks/form/__img/form__img.css');
+
+/* menu */
+@import url('./blocks/menu/menu.css');
+@import url('./blocks/menu/__button/menu__button.css');
+
+/* playground */
+@import url('./blocks/playground/playground.css');
+@import url('./blocks/playground/__place/playground__place.css');
+@import url('./blocks/playground/__place/_large/playground__place-l.css');
+@import url('./blocks/playground/__place/_medium/playground__place-m.css');
+@import url('./blocks/playground/__place/_small/playground__place-s.css');
 
 /* card */
 @import url('./blocks/card/card.css');
@@ -24,15 +47,17 @@
 @import url('./blocks/card/__side/_back/card__side_back.css');
 @import url('./blocks/card/__side/_front/card__side_front.css');
 @import url('./blocks/card/_complete/card_complete.css');
+@import url('./blocks/card/_large/card_large.css');
+@import url('./blocks/card/_medium/card_medium.css');
+@import url('./blocks/card/_small/card_small.css');
 
 /* footer */
 @import url('./blocks/footer/footer.css');
 @import url('./blocks/footer/__author/footer__author.css');
 
 /* other */
+@import url('./blocks/button/button.css');
 @import url('./blocks/reset/reset.css');
 @import url('./vendor/lato.css');
 @import url('./blocks/visually-hidden/visually-hidden.css');
-@import url('./blocks/playground/play-ground.css');
 @import url('./blocks/disabled/disabled.css');
-@import url('./blocks/warning-alert/warning-alert.css');

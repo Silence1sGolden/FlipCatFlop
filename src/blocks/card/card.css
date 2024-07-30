@@ -3,7 +3,7 @@
     display: flex;
     block-size: 100px;
     inline-size: 100px;
-    border: 1px solid black;
+    border: 1px solid var(--black);
     border-radius: 5px;
     cursor: pointer;
     user-select: none;
@@ -21,4 +21,11 @@
 .card-flip-back {
     transform: rotateX(360deg);
     transition: transform 1.5s;
+}
+
+@media (inline-size <= 375px) {
+    .card {
+        inline-size: 0px;
+        block-size: 0px;
+    }
 }

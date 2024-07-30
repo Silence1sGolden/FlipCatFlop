@@ -1,5 +1,6 @@
 .header__title {
-    font-family: 'Lato';
+    font-family: var(--main-font);
     font-weight: 300;
     font-size: 36px;
+    text-align: center;
 }
