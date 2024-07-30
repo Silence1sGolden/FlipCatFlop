@@ -1,4 +1,4 @@
-.play-ground {
+.playground {
     display: flex;
     flex-direction: column;
     padding: 20px 10px;
@@ -6,7 +6,7 @@
 }
 
 @media (inline-size <= 375px) {
-    .play-ground {
+    .playground {
         justify-content: space-between;
         gap: 0px;
     }

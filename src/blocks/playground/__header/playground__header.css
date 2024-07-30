@@ -1,0 +1,9 @@
+.playground__header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.playground:has(.playground__place-s) .playground__header {
+    justify-content: space-between;
+}

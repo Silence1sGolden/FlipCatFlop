@@ -7,20 +7,19 @@
     <title>FlipFlop</title>
 </head>
 
-<body>
-    <div class="content"></div>
+<body class="content">
 
     <template id="header">
-        <div class="header">
+        <header class="header">
             <h1 class="header__title">FLIPFLOP</h1>
             <span class="warning-alert">The game is displayed well only on PC</span>
-        </div>
+        </header>
     </template>
 
     <template id="footer">
-        <div class="footer">
+        <footer class="footer">
             <p class="footer__author">Created by mute.</p>
-        </div>
+        </footer>
     </template>
 
     <template id="entry-form">
@@ -57,16 +56,16 @@
         <div class="playground__header">
             <div class="playground__header-item">
                 <h2 class="playground__header-title">Time</h2>
-                <p class="playground__header-text"></p>
+                <p class="playground__header-text" id="timer"></p>
             </div>
             <div class="playground__header-item">
                 <h2 class="playground__header-title">Cards</h2>
-                <p class="playground__header-text"></p>
+                <p class="playground__header-text" id="cards"></p>
             </div>
         </div>
     </template>
 
-    <template>
+    <template id="playground">
         <div class="playground">
             <div class="playground__place"></div>
         </div>
