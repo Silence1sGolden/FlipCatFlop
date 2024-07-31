@@ -18,7 +18,7 @@ import kitty_17 from '../img/kitty-17.png';
 import kitty_18 from '../img/kitty-18.png';
 import kitty_19 from '../img/kitty-19.png';
 
-export const cardsList = [
+const cardsList = [
   {
     name: 'kitty-1',
     src: kitty_1
@@ -96,3 +96,7 @@ export const cardsList = [
     src: kitty_19
   }
 ];
+
+export {
+  cardsList
+}
