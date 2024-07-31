@@ -13,17 +13,19 @@ function counterCard() {
         document.querySelector('.playground').classList.add('disabled');
         setTimeout(() => {
             if (cards[0].querySelector('.backside').getAttribute('alt') === cards[1].querySelector('.backside').getAttribute('alt')) {
-                thisCardsSame(cards, true);
+                areCardsSame(cards, true);
             } else {
-                thisCardsSame(cards, false);
+                areCardsSame(cards, false);
             }
             document.querySelector('.playground').classList.remove('disabled');
         }, 1500)
     }
 }
 
-function thisCardsSame(cards, status) {
+function areCardsSame(cards, status) {
     if (status) {
+        const counter = document.querySelector('#cards');
+        counter.textContent -= 1;
         cards.forEach((item) => {
             item.classList.remove('card-flip');
             item.classList.add('card_complete');
