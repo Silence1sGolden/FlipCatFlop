@@ -1,0 +1,6 @@
+.win__block {
+    padding: 15px 30px;
+    background-color: var(--dull-pink);
+    border: 1px solid var(--black);
+    border-radius: 5px;
+}

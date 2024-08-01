@@ -1,5 +1,15 @@
 import flopImg from '../img/flop.png';
 const flop = flopImg;
+import { areYouWinnig } from '../index.js';
+import { audio } from './audio.js';
+const flipSound = new Audio(audio.find((item) => {
+    if (item.name == 'card_flip') {
+        return true;
+    } else {
+        return false;
+    }
+}).src)
+flipSound.volume = 0.4;
 
 function openCard(evt) {
     const card = evt.target.closest('.card');
@@ -8,6 +18,7 @@ function openCard(evt) {
 }
 
 function counterCard() {
+    flipSound.play();
     const cards = document.querySelectorAll('.card-flip');
     if (cards.length === 2) {
         document.querySelector('.playground').classList.add('disabled');
@@ -30,6 +41,7 @@ function areCardsSame(cards, status) {
             item.classList.remove('card-flip');
             item.classList.add('card_complete');
         })
+        areYouWinnig(counter.textContent);
     } else {
         cards.forEach((item) => {
             item.classList.remove('card-flip');

@@ -1,8 +1,8 @@
 .card {
     position: relative;
     display: flex;
-    block-size: 100px;
-    inline-size: 100px;
+    block-size: 95px;
+    inline-size: 95px;
     border: 1px solid var(--black);
     border-radius: 5px;
     cursor: pointer;

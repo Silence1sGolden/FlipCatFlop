@@ -11,8 +11,7 @@
 
     <template id="header">
         <header class="header">
-            <h1 class="header__title">FLIPFLOP</h1>
-            <span class="warning-alert">The game is displayed well only on PC</span>
+            <h1 class="header__title">FlipCatFlop</h1>
         </header>
     </template>
 
@@ -20,6 +19,14 @@
         <footer class="footer">
             <p class="footer__author">Created by mute.</p>
         </footer>
+    </template>
+
+    <template id="win">
+        <div class="win">
+            <div class="win__block">
+                <h2 class="win__text">Congratulation!</h2>
+            </div>
+        </div>
     </template>
 
     <template id="entry-form">
@@ -36,14 +43,14 @@
                 <li class="form__item">
                     <label class="form__label">
                         <img class="form__img" src="<%=require('./img/medium.png')%>" alt="medium" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="12"/>
+                        <input class="form__radio visually-hidden" name="place" type="radio" value="10"/>
                         Medium
                     </label>
                 </li>
                 <li class="form__item">
                     <label class="form__label" for="hard">
                         <img class="form__img" src="<%=require('./img/hard.png')%>" alt="hard" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="18" id="hard"/>
+                        <input class="form__radio visually-hidden" name="place" type="radio" value="15" id="hard"/>
                         Hard
                     </label>
                 </li>
@@ -55,10 +62,6 @@
     <template id="playground">
         <div class="playground">
             <div class="playground__header">
-                <div class="playground__header-item">
-                    <h2 class="playground__header-title">Time</h2>
-                    <p class="playground__header-text" id="timer"></p>
-                </div>
                 <div class="playground__header-item">
                     <h2 class="playground__header-title">Cards</h2>
                     <p class="playground__header-text" id="cards"></p>

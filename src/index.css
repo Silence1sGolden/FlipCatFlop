@@ -14,10 +14,14 @@
 /* header */
 @import url('./blocks/header/header.css');
 @import url('./blocks/header/__title/header__title.css');
-@import url('./blocks/header/warning-alert/warning-alert.css');
 
 /* content */
 @import url('./blocks/content/content.css');
+
+/* win */
+@import url('./blocks/win/win.css');
+@import url('./blocks/win/__block/win__block.css');
+@import url('./blocks/win/__text/win__text.css');
 
 /* form */
 @import url('./blocks/form/form.css');

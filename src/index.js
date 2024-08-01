@@ -1,6 +1,7 @@
 import './index.css';
 import { cardsList } from './components/cardsList.js';
 import { openCard } from './components/card.js';
+import { audio } from './components/audio.js';
 
 const content = document.querySelector('.content');
 const headerTemplate = document.querySelector('#header').content;
@@ -9,8 +10,49 @@ const entryFormTemplate = document.querySelector('#entry-form').content;
 const playgroundTemplate = document.querySelector('#playground').content;
 const menuTemplate = document.querySelector('#menu').content;
 const cardTemplate = document.querySelector('#card').content;
+const winTemplate = document.querySelector('#win').content;
+const bgMusic = new Audio(audio.find((item) => {
+    if (item.name == 'bg_music') {
+        return true;
+    } else {
+        return false;
+    }
+}).src)
+const victory = new Audio(audio.find((item) => {
+    if (item.name == 'victory') {
+        return true;
+    } else {
+        return false;
+    }
+}).src)
 
-function createEntryForm(m) {
+function areYouWinnig(counter) {
+    if (counter == 0) {
+        playVictorySound();
+        const win = winTemplate.cloneNode(true);
+        const place = document.querySelector('.playground__place');
+        place.classList.add('disabled');
+        place.append(win);
+    }
+}
+
+function playVictorySound() {
+    playBGMusic(false);
+    victory.volume = 0.4;
+    victory.play();
+}
+
+function playBGMusic(status) {
+    if (status) {
+        bgMusic.loop = true;
+        bgMusic.volume = 0.5;
+        bgMusic.play();
+    } else {
+        bgMusic.pause();
+    }
+}
+
+function createEntryForm() {
     // Клонируем формы
     const header = headerTemplate.cloneNode(true);
     const footer = footerTemplate.cloneNode(true);
@@ -19,6 +61,8 @@ function createEntryForm(m) {
     entryForm.querySelector('.form').addEventListener('submit', startGame);
     // Заливаем всё в документ
     document.querySelector('.content').append(header, entryForm, footer);
+    //
+    playBGMusic(true)
 }
 
 function startGame(evt) {
@@ -57,13 +101,14 @@ function createGameRoom(playGroundSize) {
         resetPlayGround(playGroundSize);
     })
     // Добавляем меню в игровое поле в зависимости от устройства
+    // Заливаем игровое поле в документ в зависимости от устройства
     if (isMobile()) {
         playGround.querySelector('.playground').append(playGroundMenu);
+        content.append(playGround);
     } else {
         playGroundHeader.querySelector('.playground__header-item').after(playGroundMenu);
+        document.querySelector('.header').after(playGround);
     }
-    // Заливаем игровое поле в документ
-    content.append(playGround);
 }
 
 function giveCardInformation(evt, gameCards) {
@@ -84,6 +129,9 @@ function giveCardInformation(evt, gameCards) {
 }
 
 function resetPlayGround(playGroundSize) {
+    playBGMusic(true);
+    document.querySelector('#cards').textContent = playGroundSize;
+    document.querySelector('.playground__place').classList.remove('disabled');
     Array.from(document.querySelector('.playground__place').children).forEach((item) => {
         item.remove();
     })
@@ -108,14 +156,14 @@ function fillPlayground(playGroundSize, gameCards) {
 
 function getCardSize(playGroundSize) {
     if (playGroundSize == 6) return 'card_large';
-    if (playGroundSize == 12) return 'card_medium';
-    if (playGroundSize == 18) return 'card_small';
+    if (playGroundSize == 10) return 'card_medium';
+    if (playGroundSize == 15) return 'card_small';
 }
 
 function getPlaceSize(playGroundSize) {
     if (playGroundSize == 6) return 'playground__place-s';
-    if (playGroundSize == 12) return 'playground__place-m';
-    if (playGroundSize == 18) return 'playground__place-l';
+    if (playGroundSize == 10) return 'playground__place-m';
+    if (playGroundSize == 15) return 'playground__place-l';
 }
 
 function getRandomCards(playGroundSize) {
@@ -176,3 +224,7 @@ function isMobile() {
 }
 
 createEntryForm();
+
+export {
+    areYouWinnig
+}
