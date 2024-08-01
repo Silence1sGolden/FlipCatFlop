@@ -22,10 +22,3 @@
     transform: rotateX(360deg);
     transition: transform 1.5s;
 }
-
-@media (width <= 1440px) {
-    .card {
-        inline-size: 0px;
-        block-size: 0px;
-    }
-}
