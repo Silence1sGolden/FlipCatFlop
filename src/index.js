@@ -230,7 +230,7 @@ function getRandomNum(max) {
 }
 
 function isMobile() {
-    return (window.innerWidth <= 375) ? true : false;
+    return (window.innerWidth <= 1440) ? true : false;
 }
 
 createEntryForm();
