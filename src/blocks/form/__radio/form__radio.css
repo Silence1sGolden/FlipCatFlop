@@ -1,7 +1,3 @@
-.form__radio {
-    position: relative;
-}
-
 .form__radio:focus {
     outline: none
 }

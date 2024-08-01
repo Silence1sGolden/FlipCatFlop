@@ -1,0 +1,18 @@
+.playground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 10px;
+    background-color: var(--dull-pink);
+    border: 1px solid var(--black);
+    border-radius: 5px;
+}
+
+@media (width <= 375px) {
+    .playground {
+        block-size: 100vh;
+        inline-size: 100vw;
+        justify-content: space-between;
+    }
+}

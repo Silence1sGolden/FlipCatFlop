@@ -1,15 +1,7 @@
 .content {
+    block-size: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 5px;
-}
-
-.content:has(.content__form) {
-    margin-block-start: calc(50vh - 300px);
-}
-
-.content:has(.play-ground) {
-    margin-block-start: calc(50vh - 350px);
 }

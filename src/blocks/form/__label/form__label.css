@@ -5,10 +5,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 5px;
-    font-family: 'Lato';
+    font-family: var(--main-font);
     font-size: 20px;
     font-weight: 400;
-    color: #B692C2;
+    color: var(--very-light-purple);
     cursor: pointer;
     user-select: none;
     transition: color .3s;
@@ -16,5 +16,5 @@
 
 .form__label:has(.form__radio:checked) {
     cursor: auto;
-    color: black;
+    color: var(--black);
 }

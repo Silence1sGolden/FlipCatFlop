@@ -1,0 +1,28 @@
+.button {
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    background-color: var(--light-purple);
+    color: var(--black);
+    font-family: var(--main-font);
+    font-size: 28px;
+    font-weight: 300;
+    transition: background-color .3s, color .3s;
+}
+
+.button:hover {
+    background-color: var(--very-light-purple);
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: var(--grey-brown-raspberry);
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.button:focus-visible {
+    outline: 1px solid var(--grey-brown-raspberry);
+    outline-offset: 1px;
+}

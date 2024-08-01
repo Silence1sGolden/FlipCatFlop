@@ -1,0 +1,6 @@
+.win__text {
+    font-family: var(--main-font);
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
