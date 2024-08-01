@@ -1,10 +1,11 @@
-.win {
+.play-music-question {
     position: absolute;
-    inset: 0;
-    inline-size: 100%;
     block-size: 100%;
+    inline-size: 100%;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--low-black);
+    z-index: 100;
 }

@@ -1,0 +1,10 @@
+.play-music-question__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    background-color: var(--dull-pink);
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 20px;
+}

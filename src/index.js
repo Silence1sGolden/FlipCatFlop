@@ -25,6 +25,18 @@ const victory = new Audio(audio.find((item) => {
         return false;
     }
 }).src)
+const playWith = document.querySelector('#playWith');
+const dontPlay = document.querySelector('#dontPlay');
+const playMusicQuestionModal = document.querySelector('.play-music-question');
+
+playWith.addEventListener('click', () => {
+    playMusicQuestionModal.classList.add('play-music-question_hide');
+    playBGMusic(true);
+})
+dontPlay.addEventListener('click', () => {
+    playMusicQuestionModal.classList.add('play-music-question_hide');
+    playBGMusic(false);
+})
 
 function areYouWinnig(counter) {
     if (counter == 0) {
@@ -61,8 +73,6 @@ function createEntryForm() {
     entryForm.querySelector('.form').addEventListener('submit', startGame);
     // Заливаем всё в документ
     document.querySelector('.content').append(header, entryForm, footer);
-    //
-    playBGMusic(true)
 }
 
 function startGame(evt) {

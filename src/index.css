@@ -1,6 +1,7 @@
 :root {
     --white: #ffffff;
     --black: #000000;
+    --low-black: rgba(0, 0, 0, .2);
     --dull-pink: #FFDFD6;
     --light-purple: #E3A5C7;
     --grey-brown-raspberry: #694F8E;
@@ -62,6 +63,13 @@
 /* footer */
 @import url('./blocks/footer/footer.css');
 @import url('./blocks/footer/__author/footer__author.css');
+
+/* play-music-question */
+@import url('./blocks/play-music-question/play-music-question.css');
+@import url('./blocks/play-music-question/__block/play-music-question__block.css');
+@import url('./blocks/play-music-question/__button/play-music-question__button.css');
+@import url('./blocks/play-music-question/__title/play-music-question__title.css');
+@import url('./blocks/play-music-question/_hide/play-music-question_hide.css');
 
 /* other */
 @import url('./blocks/button/button.css');
