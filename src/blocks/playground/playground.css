@@ -9,7 +9,7 @@
     border-radius: 5px;
 }
 
-@media (width <= 375px) {
+@media (width <= 1440px) {
     .playground {
         block-size: 100vh;
         inline-size: 100vw;
