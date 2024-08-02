@@ -17,21 +17,22 @@
 
     <template id="footer">
         <footer class="footer">
-            <p class="footer__author">Created by mute.</p>
+            <p class="footer__text">v2.1</p>
+            <p class="footer__text">created by mute</p>
         </footer>
     </template>
 
     <template id="win">
         <div class="win">
             <div class="win__block">
-                <h2 class="win__text">Congratulation!</h2>
+                <h2 class="win__text">Congratulations!</h2>
             </div>
         </div>
     </template>
 
     <template id="entry-form">
         <form class="form" name="start-form">
-            <p class="form__title">Select difficult</p>
+            <p class="form__title">Select the difficulty</p>
             <ul class="form__level-difficult-list">
                 <li class="form__item">
                     <label class="form__label">
@@ -88,14 +89,15 @@
             </div>
         </div>
     </template>
-
-    <div class="play-music-question">
-        <div class="play-music-question__block">
-            <h2 class="play-music-question__title">Do you want to play with music?</h2>
-            <button id="playWith" class="button play-music-question__button">Play with music!</button>
-            <button id="dontPlay" class="button play-music-question__button">No, please!</button>
-        </div>
-    </div>
+    
+    <form name="play-music-question" class="play-music-question">
+        <fieldset class="play-music-question__block">
+            <h2 class="play-music-question__title">Do you want to turn the music on?</h2>
+            <input class="button play-music-question__button" type="submit" value="Turn on all sounds">
+            <input class="button play-music-question__button" type="submit" value="Play without music">
+            <input class="button play-music-question__button" type="submit" value="Turn off all">
+        </fieldset>
+    </form>
 </body>
 
 </html>

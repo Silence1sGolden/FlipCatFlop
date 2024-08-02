@@ -1,6 +1,8 @@
 .footer {
     inline-size: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
     padding: 50px;
 }

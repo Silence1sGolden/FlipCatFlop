@@ -1,7 +1,7 @@
 import './index.css';
 import { cardsList } from './components/cardsList.js';
 import { openCard } from './components/card.js';
-import { audio } from './components/audio.js';
+import { playBGMusic, playVictorySound } from './components/audio.js';
 
 const content = document.querySelector('.content');
 const headerTemplate = document.querySelector('#header').content;
@@ -11,56 +11,37 @@ const playgroundTemplate = document.querySelector('#playground').content;
 const menuTemplate = document.querySelector('#menu').content;
 const cardTemplate = document.querySelector('#card').content;
 const winTemplate = document.querySelector('#win').content;
-const bgMusic = new Audio(audio.find((item) => {
-    if (item.name == 'bg_music') {
-        return true;
-    } else {
-        return false;
-    }
-}).src)
-const victory = new Audio(audio.find((item) => {
-    if (item.name == 'victory') {
-        return true;
-    } else {
-        return false;
-    }
-}).src)
-const playWith = document.querySelector('#playWith');
-const dontPlay = document.querySelector('#dontPlay');
-const playMusicQuestionModal = document.querySelector('.play-music-question');
+const playMusicQuestionModal = document.forms['play-music-question'];
+let soundsSetting = 0;
 
-playWith.addEventListener('click', () => {
+playMusicQuestionModal.addEventListener('submit', evt => {
+    evt.preventDefault();
+    soundsSetting = setSoundsSetting(evt.submitter.value);
+    playBGMusic(soundsSetting);
     playMusicQuestionModal.classList.add('play-music-question_hide');
-    playBGMusic(true);
-})
-dontPlay.addEventListener('click', () => {
-    playMusicQuestionModal.classList.add('play-music-question_hide');
-    playBGMusic(false);
-})
+});
+
+function setSoundsSetting(value) {
+    switch (value) {
+        case 'Turn on all sounds': {
+            return 2;
+        }
+        case 'Play without music': {
+            return 1;
+        }
+        case 'Turn off all sounds': {
+            return 0;
+        }
+    }
+}
 
 function areYouWinnig(counter) {
     if (counter == 0) {
-        playVictorySound();
+        playVictorySound(soundsSetting);
         const win = winTemplate.cloneNode(true);
         const place = document.querySelector('.playground__place');
         place.classList.add('disabled');
         place.append(win);
-    }
-}
-
-function playVictorySound() {
-    playBGMusic(false);
-    victory.volume = 0.4;
-    victory.play();
-}
-
-function playBGMusic(status) {
-    if (status) {
-        bgMusic.loop = true;
-        bgMusic.volume = 0.5;
-        bgMusic.play();
-    } else {
-        bgMusic.pause();
     }
 }
 
@@ -105,9 +86,11 @@ function createGameRoom(playGroundSize) {
     // Добавляем кнопкам МЕНЮ слушатели
     buttonsArr[0].addEventListener('click', () => {
         clearContent(true);
+        playBGMusic(soundsSetting);
         createEntryForm();
     })
     buttonsArr[1].addEventListener('click', () => {
+        playBGMusic(soundsSetting);
         resetPlayGround(playGroundSize);
     })
     // Добавляем меню в игровое поле в зависимости от устройства
@@ -139,7 +122,6 @@ function giveCardInformation(evt, gameCards) {
 }
 
 function resetPlayGround(playGroundSize) {
-    playBGMusic(true);
     document.querySelector('#cards').textContent = playGroundSize;
     document.querySelector('.playground__place').classList.remove('disabled');
     Array.from(document.querySelector('.playground__place').children).forEach((item) => {
@@ -152,6 +134,7 @@ function fillPlayground(playGroundSize, gameCards) {
     const playGroundPlace = document.querySelector('.playground__place');
     const status = isMobile();
     for (let i = 0; i < playGroundSize * 2; i++) {
+        let time = i * 50;
         const newCard = cardTemplate.cloneNode(true);
         if (status) {
             newCard.querySelector('.card').classList.add(getCardSize(playGroundSize));
@@ -160,7 +143,7 @@ function fillPlayground(playGroundSize, gameCards) {
             openCard(evt);
             giveCardInformation(evt, gameCards);
         });
-        playGroundPlace.append(newCard);
+        setTimeout(() => playGroundPlace.append(newCard), time);
     }
 }
 
@@ -236,5 +219,6 @@ function isMobile() {
 createEntryForm();
 
 export {
-    areYouWinnig
+    areYouWinnig,
+    soundsSetting
 }

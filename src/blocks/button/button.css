@@ -4,9 +4,16 @@
     background-color: var(--light-purple);
     color: var(--black);
     font-family: var(--main-font);
-    font-size: 28px;
-    font-weight: 300;
     transition: background-color .3s, color .3s;
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.button:focus-visible {
+    outline: 1px solid var(--grey-brown-raspberry);
+    outline-offset: 1px;
 }
 
 .button:hover {
@@ -18,11 +25,13 @@
     background-color: var(--grey-brown-raspberry);
 }
 
-.button:focus {
-    outline: 0;
-}
+@media (width <= 1440px) {
+    .button:hover {
+        background-color: none;
+        cursor: none;
+    }
 
-.button:focus-visible {
-    outline: 1px solid var(--grey-brown-raspberry);
-    outline-offset: 1px;
+    .button:active {
+        background-color: var(--grey-brown-raspberry);
+    }
 }

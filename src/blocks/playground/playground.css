@@ -11,8 +11,10 @@
 
 @media (width <= 1440px) {
     .playground {
-        block-size: 100vh;
-        inline-size: 100vw;
+        block-size: 100dvh;
+        inline-size: 100dvw;
         justify-content: space-between;
+        border: none;
+        border-radius: 0;
     }
 }
