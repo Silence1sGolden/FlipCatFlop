@@ -1,3 +1,6 @@
 .play-music-question__button {
     inline-size: 100%;
+    padding: 5px 0px;
+    font-size: 24px;
+    font-weight: 300;
 }

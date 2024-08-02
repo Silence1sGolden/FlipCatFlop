@@ -1,15 +1,7 @@
 import flopImg from '../img/flop.png';
 const flop = flopImg;
-import { areYouWinnig } from '../index.js';
-import { audio } from './audio.js';
-const flipSound = new Audio(audio.find((item) => {
-    if (item.name == 'card_flip') {
-        return true;
-    } else {
-        return false;
-    }
-}).src)
-flipSound.volume = 0.4;
+import { areYouWinnig, soundsSetting } from '../index.js';
+import { playCardFlipSound } from './audio.js';
 
 function openCard(evt) {
     const card = evt.target.closest('.card');
@@ -18,7 +10,7 @@ function openCard(evt) {
 }
 
 function counterCard() {
-    flipSound.play();
+    playCardFlipSound(soundsSetting);
     const cards = document.querySelectorAll('.card-flip');
     if (cards.length === 2) {
         document.querySelector('.playground').classList.add('disabled');

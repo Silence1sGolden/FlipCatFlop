@@ -62,7 +62,7 @@
 
 /* footer */
 @import url('./blocks/footer/footer.css');
-@import url('./blocks/footer/__author/footer__author.css');
+@import url('./blocks/footer/__text/footer__text.css');
 
 /* play-music-question */
 @import url('./blocks/play-music-question/play-music-question.css');
