@@ -1,0 +1,4 @@
+.footer__link {
+    text-decoration: underline;
+    color: var(--light-white);
+}

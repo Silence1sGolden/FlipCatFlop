@@ -1,8 +1,0 @@
-.form__radio:focus {
-    outline: none
-}
-
-/* .form__label:has(.form__radio:focus-visible) {
-    outline: 1px solid blue;
-    outline-offset: 1px;
-} */

@@ -1,6 +1,6 @@
 .menu__button {
-    max-inline-size: 110px;
-    padding: 5px 20px;
-    font-size: 26px;
-    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
 }

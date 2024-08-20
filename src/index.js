@@ -1,224 +1,231 @@
 import './index.css';
-import { cardsList } from './components/cardsList.js';
-import { openCard } from './components/card.js';
-import { playBGMusic, playVictorySound } from './components/audio.js';
+import { enebleMenu } from './components/menu';
 
-const content = document.querySelector('.content');
-const headerTemplate = document.querySelector('#header').content;
-const footerTemplate = document.querySelector('#footer').content;
-const entryFormTemplate = document.querySelector('#entry-form').content;
-const playgroundTemplate = document.querySelector('#playground').content;
-const menuTemplate = document.querySelector('#menu').content;
-const cardTemplate = document.querySelector('#card').content;
-const winTemplate = document.querySelector('#win').content;
-const playMusicQuestionModal = document.forms['play-music-question'];
-let soundsSetting = 0;
+const menuButtons = Array.from(document.querySelectorAll('.menu__item'));
 
-playMusicQuestionModal.addEventListener('submit', evt => {
-    evt.preventDefault();
-    soundsSetting = setSoundsSetting(evt.submitter.value);
-    playBGMusic(soundsSetting);
-    playMusicQuestionModal.classList.add('play-music-question_hide');
-});
+enebleMenu(menuButtons);
 
-function setSoundsSetting(value) {
-    switch (value) {
-        case 'Turn on all sounds': {
-            return 2;
-        }
-        case 'Play without music': {
-            return 1;
-        }
-        case 'Turn off all sounds': {
-            return 0;
-        }
-    }
-}
+// import { cardsList } from './components/cardsList.js';
+// import { openCard } from './components/card.js';
+// import { playBGMusic, playVictorySound } from './components/audio.js';
 
-function areYouWinnig(counter) {
-    if (counter == 0) {
-        playVictorySound(soundsSetting);
-        const win = winTemplate.cloneNode(true);
-        const place = document.querySelector('.playground__place');
-        place.classList.add('disabled');
-        place.append(win);
-    }
-}
+// const content = document.querySelector('.content');
+// const headerTemplate = document.querySelector('#header').content;
+// const footerTemplate = document.querySelector('#footer').content;
+// const entryFormTemplate = document.querySelector('#entry-form').content;
+// const playgroundTemplate = document.querySelector('#playground').content;
+// const menuTemplate = document.querySelector('#menu').content;
+// const cardTemplate = document.querySelector('#card').content;
+// const winTemplate = document.querySelector('#win').content;
+// const playMusicQuestionModal = document.forms['play-music-question'];
+// let soundsSetting = 0;
 
-function createEntryForm() {
-    // Клонируем формы
-    const header = headerTemplate.cloneNode(true);
-    const footer = footerTemplate.cloneNode(true);
-    const entryForm = entryFormTemplate.cloneNode(true);
-    // Добавляем слушатель на форму
-    entryForm.querySelector('.form').addEventListener('submit', startGame);
-    // Заливаем всё в документ
-    document.querySelector('.content').append(header, entryForm, footer);
-}
 
-function startGame(evt) {
-    // Отключаем дефолтное поведение формы
-    evt.preventDefault();
-    // Получаем размер игрового поля из формы
-    const playGroundSize = document.forms['start-form'].place.value;
-    // Очищаем документ
-    clearContent(isMobile());
-    // Создаём игровую комнату
-    createGameRoom(playGroundSize);
-    // Заполняем игровое поле карточками
-    fillPlayground(playGroundSize, getRandomCards(playGroundSize));
-}
+// playMusicQuestionModal.addEventListener('submit', evt => {
+//     evt.preventDefault();
+//     soundsSetting = setSoundsSetting(evt.submitter.value);
+//     playBGMusic(soundsSetting);
+//     playMusicQuestionModal.classList.add('play-music-question_hide');
+// });
 
-function createGameRoom(playGroundSize) {
-    // Создаём клоны нового ИГРОВОГО ПОЛЯ и МЕНЮ
-    const playGround = playgroundTemplate.cloneNode(true);
-    const playGroundMenu = menuTemplate.cloneNode(true);
-    // Получаем HEADER и PLACE
-    const playGroundHeader = playGround.querySelector('.playground__header');
-    const playGroundPlace = playGround.querySelector('.playground__place');
-    // Находим счётчик карточек и присваиваем ему кол-во карточек
-    const counter = playGroundHeader.querySelector('#cards');
-    counter.textContent = playGroundSize;
-    // Получаем массив кнопок МЕНЮ
-    const buttonsArr = Array.from(playGroundMenu.querySelectorAll('.menu__button'));
-    // Присваиваем класс в зависимости от выбранного размера
-    playGroundPlace.classList.add(getPlaceSize(playGroundSize));
-    // Добавляем кнопкам МЕНЮ слушатели
-    buttonsArr[0].addEventListener('click', () => {
-        clearContent(true);
-        playBGMusic(soundsSetting);
-        createEntryForm();
-    })
-    buttonsArr[1].addEventListener('click', () => {
-        playBGMusic(soundsSetting);
-        resetPlayGround(playGroundSize);
-    })
-    // Добавляем меню в игровое поле в зависимости от устройства
-    // Заливаем игровое поле в документ в зависимости от устройства
-    if (isMobile()) {
-        playGround.querySelector('.playground').append(playGroundMenu);
-        content.append(playGround);
-    } else {
-        playGroundHeader.querySelector('.playground__header-item').after(playGroundMenu);
-        document.querySelector('.header').after(playGround);
-    }
-}
+// function setSoundsSetting(value) {
+//     switch (value) {
+//         case 'Turn on all sounds': {
+//             return 2;
+//         }
+//         case 'Play without music': {
+//             return 1;
+//         }
+//         case 'Turn off all sounds': {
+//             return 0;
+//         }
+//     }
+// }
 
-function giveCardInformation(evt, gameCards) {
-    evt.target.closest('.card').classList.toggle('this');
-    const cardsArray = Array.from(document.querySelectorAll('.card'));
-    const b = cardsArray.findIndex((item) => {
-        if (item.classList.contains('this')) {
-            evt.target.closest('.card').classList.toggle('this');
-            return true;
-        }
-        return false;
-    });
-    if (b != -1) {
-        const img = evt.target.closest('.card').querySelector('.card__img');
-        img.setAttribute('src', gameCards[b].src);
-        img.setAttribute('alt', gameCards[b].name);
-    }
-}
+// function areYouWinnig(counter) {
+//     if (counter == 0) {
+//         playVictorySound(soundsSetting);
+//         const win = winTemplate.cloneNode(true);
+//         const place = document.querySelector('.playground__place');
+//         place.classList.add('disabled');
+//         place.append(win);
+//     }
+// }
 
-function resetPlayGround(playGroundSize) {
-    document.querySelector('#cards').textContent = playGroundSize;
-    document.querySelector('.playground__place').classList.remove('disabled');
-    Array.from(document.querySelector('.playground__place').children).forEach((item) => {
-        item.remove();
-    })
-    fillPlayground(playGroundSize, getRandomCards(playGroundSize));
-}
+// function createEntryForm() {
+//     // Клонируем формы
+//     const header = headerTemplate.cloneNode(true);
+//     const footer = footerTemplate.cloneNode(true);
+//     const entryForm = entryFormTemplate.cloneNode(true);
+//     // Добавляем слушатель на форму
+//     entryForm.querySelector('.form').addEventListener('submit', startGame);
+//     // Заливаем всё в документ
+//     document.querySelector('.content').append(header, entryForm, footer);
+// }
 
-function fillPlayground(playGroundSize, gameCards) {
-    const playGroundPlace = document.querySelector('.playground__place');
-    const status = isMobile();
-    for (let i = 0; i < playGroundSize * 2; i++) {
-        let time = i * 50;
-        const newCard = cardTemplate.cloneNode(true);
-        if (status) {
-            newCard.querySelector('.card').classList.add(getCardSize(playGroundSize));
-        }
-        newCard.querySelector('.card').addEventListener('click', (evt) => {
-            openCard(evt);
-            giveCardInformation(evt, gameCards);
-        });
-        setTimeout(() => playGroundPlace.append(newCard), time);
-    }
-}
+// function startGame(evt) {
+//     // Отключаем дефолтное поведение формы
+//     evt.preventDefault();
+//     // Получаем размер игрового поля из формы
+//     const playGroundSize = document.forms['start-form'].place.value;
+//     // Очищаем документ
+//     clearContent(isMobile());
+//     // Создаём игровую комнату
+//     createGameRoom(playGroundSize);
+//     // Заполняем игровое поле карточками
+//     fillPlayground(playGroundSize, getRandomCards(playGroundSize));
+// }
 
-function getCardSize(playGroundSize) {
-    if (playGroundSize == 6) return 'card_large';
-    if (playGroundSize == 10) return 'card_medium';
-    if (playGroundSize == 15) return 'card_small';
-}
+// function createGameRoom(playGroundSize) {
+//     // Создаём клоны нового ИГРОВОГО ПОЛЯ и МЕНЮ
+//     const playGround = playgroundTemplate.cloneNode(true);
+//     const playGroundMenu = menuTemplate.cloneNode(true);
+//     // Получаем HEADER и PLACE
+//     const playGroundHeader = playGround.querySelector('.playground__header');
+//     const playGroundPlace = playGround.querySelector('.playground__place');
+//     // Находим счётчик карточек и присваиваем ему кол-во карточек
+//     const counter = playGroundHeader.querySelector('#cards');
+//     counter.textContent = playGroundSize;
+//     // Получаем массив кнопок МЕНЮ
+//     const buttonsArr = Array.from(playGroundMenu.querySelectorAll('.menu__button'));
+//     // Присваиваем класс в зависимости от выбранного размера
+//     playGroundPlace.classList.add(getPlaceSize(playGroundSize));
+//     // Добавляем кнопкам МЕНЮ слушатели
+//     buttonsArr[0].addEventListener('click', () => {
+//         clearContent(true);
+//         playBGMusic(soundsSetting);
+//         createEntryForm();
+//     })
+//     buttonsArr[1].addEventListener('click', () => {
+//         playBGMusic(soundsSetting);
+//         resetPlayGround(playGroundSize);
+//     })
+//     // Добавляем меню в игровое поле в зависимости от устройства
+//     // Заливаем игровое поле в документ в зависимости от устройства
+//     if (isMobile()) {
+//         playGround.querySelector('.playground').append(playGroundMenu);
+//         content.append(playGround);
+//     } else {
+//         playGroundHeader.querySelector('.playground__header-item').after(playGroundMenu);
+//         document.querySelector('.header').after(playGround);
+//     }
+// }
 
-function getPlaceSize(playGroundSize) {
-    if (playGroundSize == 6) return 'playground__place-s';
-    if (playGroundSize == 10) return 'playground__place-m';
-    if (playGroundSize == 15) return 'playground__place-l';
-}
+// function giveCardInformation(evt, gameCards) {
+//     evt.target.closest('.card').classList.toggle('this');
+//     const cardsArray = Array.from(document.querySelectorAll('.card'));
+//     const b = cardsArray.findIndex((item) => {
+//         if (item.classList.contains('this')) {
+//             evt.target.closest('.card').classList.toggle('this');
+//             return true;
+//         }
+//         return false;
+//     });
+//     if (b != -1) {
+//         const img = evt.target.closest('.card').querySelector('.card__img');
+//         img.setAttribute('src', gameCards[b].src);
+//         img.setAttribute('alt', gameCards[b].name);
+//     }
+// }
 
-function getRandomCards(playGroundSize) {
-    const arr = JSON.parse(JSON.stringify(cardsList));
-    const result = [];
+// function resetPlayGround(playGroundSize) {
+//     document.querySelector('#cards').textContent = playGroundSize;
+//     document.querySelector('.playground__place').classList.remove('disabled');
+//     Array.from(document.querySelector('.playground__place').children).forEach((item) => {
+//         item.remove();
+//     })
+//     fillPlayground(playGroundSize, getRandomCards(playGroundSize));
+// }
 
-    for (let i = 0; i < playGroundSize; i++) {
-        const num = getRandomNum(arr.length - 1);
-        const card = arr[num];
-        result.push(card, card);
-        arr.splice(num, 1);
-    }
+// function fillPlayground(playGroundSize, gameCards) {
+//     const playGroundPlace = document.querySelector('.playground__place');
+//     const status = isMobile();
+//     for (let i = 0; i < playGroundSize * 2; i++) {
+//         let time = i * 50;
+//         const newCard = cardTemplate.cloneNode(true);
+//         if (status) {
+//             newCard.querySelector('.card').classList.add(getCardSize(playGroundSize));
+//         }
+//         newCard.querySelector('.card').addEventListener('click', (evt) => {
+//             openCard(evt);
+//             giveCardInformation(evt, gameCards);
+//         });
+//         setTimeout(() => playGroundPlace.append(newCard), time);
+//     }
+// }
 
-    return makeCardsRandom(result, Math.round(Math.random() * (5 - 2) + 2));
-}
+// function getCardSize(playGroundSize) {
+//     if (playGroundSize == 6) return 'card_large';
+//     if (playGroundSize == 10) return 'card_medium';
+//     if (playGroundSize == 15) return 'card_small';
+// }
 
-function makeCardsRandom(cards, times) {
-    const firstCards = cards.slice(0, cards.length / 2);
-    const secondCards = cards.slice(cards.length / 2)
+// function getPlaceSize(playGroundSize) {
+//     if (playGroundSize == 6) return 'playground__place-s';
+//     if (playGroundSize == 10) return 'playground__place-m';
+//     if (playGroundSize == 15) return 'playground__place-l';
+// }
 
-    for (let i = 0; i < (cards.length / 2); i++) {
-        firstCards.splice(Math.round(Math.random() * (12 - 0) + 0), 0, secondCards[i]);
-    }
+// function getRandomCards(playGroundSize) {
+//     const arr = JSON.parse(JSON.stringify(cardsList));
+//     const result = [];
 
-    if (times) {
-        return makeCardsRandom(firstCards, times - 1);
-    } else {
-        return firstCards;
-    }
-}
+//     for (let i = 0; i < playGroundSize; i++) {
+//         const num = getRandomNum(arr.length - 1);
+//         const card = arr[num];
+//         result.push(card, card);
+//         arr.splice(num, 1);
+//     }
 
-function clearContent(all) {
-    if (all) {
-        Array.from(document.querySelector('.content').children).forEach((item) => {
-            if (item.classList.contains('footer')
-                || item.classList.contains('header')
-                || item.classList.contains('playground')
-                || item.classList.contains('form')
-            ) {
-                item.remove();
-            }
-        })
-    } else {
-        Array.from(document.querySelector('.content').children).forEach((item) => {
-            if (item.classList.contains('playground') || item.classList.contains('form')) {
-                item.remove();
-            }
-        })
-    }
-}
+//     return makeCardsRandom(result, Math.round(Math.random() * (5 - 2) + 2));
+// }
 
-function getRandomNum(max) {
-    return Math.round(Math.random() * (max - 0) + 0)
-}
+// function makeCardsRandom(cards, times) {
+//     const firstCards = cards.slice(0, cards.length / 2);
+//     const secondCards = cards.slice(cards.length / 2)
 
-function isMobile() {
-    return (window.innerWidth <= 1440) ? true : false;
-}
+//     for (let i = 0; i < (cards.length / 2); i++) {
+//         firstCards.splice(Math.round(Math.random() * (12 - 0) + 0), 0, secondCards[i]);
+//     }
 
-createEntryForm();
+//     if (times) {
+//         return makeCardsRandom(firstCards, times - 1);
+//     } else {
+//         return firstCards;
+//     }
+// }
 
-export {
-    areYouWinnig,
-    soundsSetting
-}
+// function clearContent(all) {
+//     if (all) {
+//         Array.from(document.querySelector('.content').children).forEach((item) => {
+//             if (item.classList.contains('footer')
+//                 || item.classList.contains('header')
+//                 || item.classList.contains('playground')
+//                 || item.classList.contains('form')
+//             ) {
+//                 item.remove();
+//             }
+//         })
+//     } else {
+//         Array.from(document.querySelector('.content').children).forEach((item) => {
+//             if (item.classList.contains('playground') || item.classList.contains('form')) {
+//                 item.remove();
+//             }
+//         })
+//     }
+// }
+
+// function getRandomNum(max) {
+//     return Math.round(Math.random() * (max - 0) + 0)
+// }
+
+// function isMobile() {
+//     return (window.innerWidth <= 1440) ? true : false;
+// }
+
+// createEntryForm();
+
+// export {
+//     areYouWinnig,
+//     soundsSetting
+// }

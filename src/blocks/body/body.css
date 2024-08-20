@@ -1,0 +1,28 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    block-size: 100svh;
+    padding: 0px;
+    background-color: var(--light-blue);
+    overflow: hidden;
+}
+
+.body:has(.playground_hide) {
+    padding: 20px 10px;
+}
+
+@media (375px <= width < 1024px) and (orientation: landscape) {
+    .body:has(.playground_hide) {
+        padding: 10px 20px;
+    }
+}
+
+@media (width >= 1024px) {
+    .body {
+        block-size: 100vh;
+    }
+
+    .body:has(.playground_hide) {
+        padding: 0px;
+    }
+}

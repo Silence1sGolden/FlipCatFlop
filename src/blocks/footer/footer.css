@@ -1,8 +1,15 @@
+@import url('./__text/footer__text.css');
+@import url('./__link/footer__link.css');
+
 .footer {
-    inline-size: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
-    padding: 50px;
+    margin-block: 0px;
+}
+
+@media (width >= 1024px) {
+    .footer {
+        margin-block: 15px;
+    }
 }

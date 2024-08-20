@@ -1,5 +1,7 @@
 .footer__text {
-    font-family: var(--main-font);
-    font-size: 20px;
-    font-weight: 300;
+    font-family: var(--lato-font);
+    font-size: clamp(24px, 1.2111rem + 1.2327vw, 32px);
+    font-weight: 700;
+    text-align: center;
+    color: var(--light-white);
 }

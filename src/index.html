@@ -7,77 +7,90 @@
     <title>FlipFlop</title>
 </head>
 
-<body class="content">
-
-    <template id="header">
-        <header class="header">
-            <h1 class="header__title">FlipCatFlop</h1>
-        </header>
-    </template>
-
-    <template id="footer">
-        <footer class="footer">
-            <p class="footer__text">v2.1</p>
-            <p class="footer__text">created by mute</p>
-        </footer>
-    </template>
-
-    <template id="win">
-        <div class="win">
-            <div class="win__block">
-                <h2 class="win__text">Congratulations!</h2>
-            </div>
-        </div>
-    </template>
-
-    <template id="entry-form">
-        <form class="form" name="start-form">
-            <p class="form__title">Select the difficulty</p>
-            <ul class="form__level-difficult-list">
-                <li class="form__item">
-                    <label class="form__label">
-                        <img class="form__img" src="<%=require('./img/easy.png')%>" alt="easy" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="6" checked/>
-                        Easy
-                    </label>
-                </li>
-                <li class="form__item">
-                    <label class="form__label">
-                        <img class="form__img" src="<%=require('./img/medium.png')%>" alt="medium" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="10"/>
-                        Medium
-                    </label>
-                </li>
-                <li class="form__item">
-                    <label class="form__label" for="hard">
-                        <img class="form__img" src="<%=require('./img/hard.png')%>" alt="hard" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="15" id="hard"/>
-                        Hard
-                    </label>
-                </li>
-            </ul>
-            <input class="button form__submit-button" type="submit" value="Play!" />
-        </form>
-    </template>
-
-    <template id="playground">
-        <div class="playground">
-            <div class="playground__header">
-                <div class="playground__header-item">
-                    <h2 class="playground__header-title">Cards</h2>
-                    <p class="playground__header-text" id="cards"></p>
+<body class="body">
+    <header class="header">
+        <h1 class="header__title">FlipCatFlop</h1>
+    </header>
+    <div class="content">
+        <ul class="menu menu__list">
+            <li class="menu__item">
+                <div class="menu__button">
+                    <img class="menu__img" src="<%=require('./newimages/play.png')%>" alt="play">
+                    <span class="menu__text">Play</span>
                 </div>
+            </li>
+            <li class="menu__item menu__item_hide">
+                <form class="form menu__form">
+                    <div class="menu__button">
+                        <img class="menu__img" src="#easy" alt="easy" id="easy">
+                        <input class="menu__input" name="difficulty" type="radio">
+                        <label class="menu__text" for="easy">Easy</label>
+                    </div>
+                    <div class="menu__button">
+                        <img class="menu__img" src="#medium" alt="medium">
+                        <input class="menu__input" name="difficulty" type="radio" id="medium">
+                        <label class="menu__text" for="medium">Medium</label>
+                    </div>
+                    <div class="menu__button">
+                        <img class="menu__img" src="#hard" alt="hard">
+                        <input class="menu__input" name="difficulty" type="radio" id="hard">
+                        <label class="menu__text" for="hard">Hard</label>
+                    </div>
+                </form>
+            </li>
+            <li class="menu__item">
+                <div class="menu__button">
+                    <img class="menu__img" src="<%=require('./newimages/settings-light.png')%>" alt="">
+                    <span class="menu__text">Settings</span>
+                </div>
+            </li>
+            <li class="menu__item menu__item_hide">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <div class="menu__button">
+                            <img src="<%=require('./newimages/off.png')%>" alt="sounds">
+                            <span class="menu__text">Sounds</span>
+                        </div>
+                    </li>
+                    <li class="menu__item">
+                        <div class="menu__button">
+                            <img src="<%=require('./newimages/off.png')%>" alt="music">
+                            <span class="menu__text">Music</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu__item">
+                <div class="menu__button">
+                    <img src="<%=require('./newimages/information.png')%>" alt="">
+                    <span class="menu__text">Help</span>
+                </div>
+            </li>
+            <li class="menu__item">
+                <!-- ЗДЕСЬ ДОЛЖЕН БЫТЬ ПОКАЗАН ГЕЙМПЕЙ ТУТОРИАЛ -->
+            </li>
+        </ul>
+
+        <div class="playground playground_hide">
+            <div class="playground__header">
+                <ul class="playground__list">
+                    <li class="playground__item">
+                        <img class="playground__img" src="#reset" alt="">
+                    </li>
+                    <li class="playground__item">
+                        <img class="playground__img" src="#back" alt="">
+                    </li>
+                    <li class="playground__item">
+                        <img class="playground__img" src="#settings" alt="">
+                    </li>
+                </ul>
             </div>
             <div class="playground__place"></div>
         </div>
-    </template>
-
-    <template id="menu">
-        <div class="menu">
-            <button class="button menu__button">Menu</button>
-            <button class="button menu__button">Reset</button>
-        </div>
-    </template>
+    </div>
+    <footer class="footer">
+        <p class="footer__text">Thanks, <a class="footer__link" href="https://www.twitch.tv/maid_mad" target="_blank">m41dm4d</a>,<br>for the drawn pictures of cats</p>
+    </footer>
 
     <template id="card">
         <div class="card">
@@ -89,15 +102,6 @@
             </div>
         </div>
     </template>
-    
-    <form name="play-music-question" class="play-music-question">
-        <fieldset class="play-music-question__block">
-            <h2 class="play-music-question__title">Do you want to turn the music on?</h2>
-            <input class="button play-music-question__button" type="submit" value="Turn on all sounds">
-            <input class="button play-music-question__button" type="submit" value="Play without music">
-            <input class="button play-music-question__button" type="submit" value="Turn off all">
-        </fieldset>
-    </form>
 </body>
 
 </html>

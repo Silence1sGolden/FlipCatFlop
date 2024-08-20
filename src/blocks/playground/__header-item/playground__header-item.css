@@ -1,7 +1,0 @@
-/* Надо проверить и, если понадобится, то переделать */
-.playground__header-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}

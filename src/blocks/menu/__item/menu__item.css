@@ -1,0 +1,5 @@
+@import url('./_hide/menu__item_hide.css');
+
+.menu__item {
+    display: flex;
+}

@@ -1,6 +1,8 @@
 .header__title {
-    font-family: var(--main-font);
-    font-weight: 300;
-    font-size: 36px;
+    font-family: var(--lato-font);
+    font-size: clamp(28px, 1.6055rem + 0.6163vw, 32px);
+    font-weight: 700;
+    letter-spacing: 6.4px;
     text-align: center;
+    color: var(--light-white);
 }

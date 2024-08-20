@@ -1,0 +1,6 @@
+.menu__text {
+    font-family: var(--lato-font);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--light-white);
+}
