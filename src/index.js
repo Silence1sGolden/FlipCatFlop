@@ -1,9 +1,19 @@
 import './index.css';
-import { enebleMenu } from './components/menu';
+import { showDiff } from './components/menu';
 
-const menuButtons = Array.from(document.querySelectorAll('.menu__item'));
+const place = document.querySelector('.content');
 
-enebleMenu(menuButtons);
+document.querySelectorAll('.menu__item').forEach((elem) => {
+    elem.addEventListener('click', (evt) => {
+        const list = elem.closest('.menu__list');
+        evt.target.closest('.menu__item').classList.add('menu__item_disabled');
+        list.classList.add('menu__list_slide-left');
+        list.querySelectorAll('.menu__item').forEach((elem) => {
+            elem.querySelector('.menu__text').classList.add('menu__text_hide');
+        })
+        showDiff(place);
+    });
+})
 
 // import { cardsList } from './components/cardsList.js';
 // import { openCard } from './components/card.js';

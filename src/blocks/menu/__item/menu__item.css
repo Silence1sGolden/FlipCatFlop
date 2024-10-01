@@ -2,4 +2,78 @@
 
 .menu__item {
     display: flex;
+    cursor: pointer;
+}
+
+.menu__item_disabled {
+    filter: brightness(.90);
+    pointer-events: none;
+    user-select: none;
+    transition: filter .3s;
+}
+
+.menu__item:focus {
+    outline: none;
+    border: 0px;
+}
+
+.menu__item:focus-visible {
+    outline: 2px solid var(--light-white);
+    outline-offset: 1px;
+}
+
+.bg-circle {
+    fill: var(--light-white);
+    stroke: var(--dark-blue);
+    transition: fill .5s, stroke .5s;
+}
+
+.info {
+    fill: var(--dark-blue);
+    transition: fill .5s;
+}
+
+.triangle {
+    fill: var(--dark-blue);
+    transition: fill .5s;
+}
+
+.gear {
+    fill: var(--dark-blue);
+    stroke: var(--dark-blue);
+    transition: fill .5s, stroke .5s;
+}
+
+.center-circle {
+    fill: var(--light-white);
+    transition: fill .5s;
+}
+
+@media (width >= 1440px) {
+    .menu__item:hover .bg-circle {
+        fill: var(--dark-blue);
+        stroke: var(--light-white);
+        transition: fill .5s, stroke .5s;
+    }
+
+    .menu__item:hover .triangle {
+        fill: var(--light-white);
+        transition: fill .5s;
+    }
+
+    .menu__item:hover .gear {
+        fill: var(--light-white);
+        stroke: var(--light-white);
+        transition: fill .5s, stroke .5s;
+    }
+
+    .menu__item:hover .center-circle {
+        fill: var(--dark-blue);
+        transition: fill .5s;
+    }
+
+    .menu__item:hover .info {
+        fill: var(--light-white);
+        transition: fill .5s;
+    }
 }

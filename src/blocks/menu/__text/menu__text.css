@@ -4,3 +4,14 @@
     font-size: 28px;
     color: var(--light-white);
 }
+
+.menu__text_hide {
+    opacity: 0;
+    display: none;
+}
+
+@media (width >= 1440px) {
+    .menu__item:hover .menu__text {
+        text-decoration: underline;
+    }
+}

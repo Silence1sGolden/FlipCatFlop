@@ -7,7 +7,8 @@
     "build": "webpack --mode production",
     "dev": "webpack serve",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "server": "ts-node ./server.ts"
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,17 @@
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "^8.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
     "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "core-js": "^3.37.1"
+    "body-parser": "^1.20.2",
+    "core-js": "^3.37.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongodb": "6.8"
   }
 }
