@@ -17,7 +17,8 @@ const emitter = new EventEmitter();
 emitter.on('menu:play', () => menu.next('play'));
 emitter.on('menu:easy', () => menu.next('easy'));
 emitter.on('menu:back', (data) => {
-    menu.findPreviw();
+    console.log('back');
+    menu.next(menu.findPreviw(data as string).name);
 });
 
 const menu = new Menu(b, emitter, BB, [
