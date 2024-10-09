@@ -7,24 +7,22 @@ type MenuElement = {
 }
 
 export class Menu {
-    private current: string;
+    private flattenMenu: MenuElement[];
+    private menu: MenuElement[];
 
     constructor(
         private element: HTMLElement,
         private emitter: EventEmitter,
         private backButtonElement: HTMLElement,
-        private menu: MenuElement[]
+        menu: MenuElement[]
     ) {
-        this.current = 'menu';
+        this.menu = menu;
+        this.flattenMenu = this.flatMenu(menu);
     }
 
     init(): void {
         this.menu.forEach(elem => elem.element.onclick = () => this.emitter.emit(`menu:${elem.name}`));
         this.appendChildren(this.menu);
-    }
-
-    private setCurrent(data: string): void {
-        this.current = data;
     }
 
     private appendChildren(data: MenuElement[]): void {
@@ -39,38 +37,47 @@ export class Menu {
         this.element.prepend(this.backButtonElement);
     }
 
-    findDeep(data: string): number | undefined {
-        for (let i = 1; i < 20; i++) {
-            if (this.menu.flat(i).map(elem => elem.name).includes(data)) {
-                return i;
+    private flatMenu(data: MenuElement[]): MenuElement[] {
+        const a: any = [];
+        data.forEach(elem => {
+            if (elem.children) {
+                a.push(elem, ...this.flatMenu(elem.children));
+            } else {
+                a.push(elem);
             }
-        }
+        })
+        return a;
     }
 
     findElement(data: string): MenuElement | undefined {
-        return this.menu.flat(this.findDeep(data)).find(elem => elem.name === data);
+        return this.flattenMenu.find(elem => elem.name === data);
     }
 
-    findPreviw(data: string): MenuElement {
-        const result = this.menu.flat(this.findDeep(data)).find(elem => elem.children?.find(item => item.name === data));
-        if (result) return result;
-        return {
-            element: this.element,
-            name: 'menu',
-            children: this.menu
-        };
+    findPreviw(data: string): MenuElement | undefined {
+        const e = this.flattenMenu.find(elem => elem.name === data);
+        
+        if (e) {
+            const i = this.flattenMenu.indexOf(e);
+            if (i === 0) return {
+                element: this.element,
+                name: 'menu',
+                children: this.menu
+            };
+            return this.flattenMenu[i - 1];
+        }
+
+        return undefined;
     }
 
     next(name: string): void {
+        this.findElement(name);
         if (name === 'menu') {
-            this.setCurrent(name);
 
             this.appendChildren(this.menu);
         } else {
-            const next = this.menu.find((elem) => elem.name === name);
+            const next = this.findElement(name);
 
             if (next) {
-                this.setCurrent(next.name);
                 if (next.children) this.appendChildren(next.children);
                 this.addBackButton(name);
             }

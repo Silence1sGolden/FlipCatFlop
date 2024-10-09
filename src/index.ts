@@ -16,9 +16,12 @@ const BB = TemplateBuilder.createMenuElement('https://i.pinimg.com/564x/63/d9/a0
 const emitter = new EventEmitter();
 emitter.on('menu:play', () => menu.next('play'));
 emitter.on('menu:easy', () => menu.next('easy'));
-emitter.on('menu:back', (data) => {
-    console.log('back');
-    menu.next(menu.findPreviw(data as string).name);
+emitter.on('menu:easy2', () => prompt('gay?', 'yes'));
+emitter.on('menu:back', (prop) => {
+    const a = menu.findPreviw(prop.name);
+    if (a) {
+        menu.next(a.name);
+    }
 });
 
 const menu = new Menu(b, emitter, BB, [

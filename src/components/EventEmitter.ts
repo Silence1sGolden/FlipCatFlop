@@ -1,9 +1,13 @@
 // Интерфейс для инверсии зависимости, чтобы использовать в другом коде,
 // не связываясь с конкретной реализацией
 interface IEvents {
-	on<T extends object>(event: string, callback: (data: T) => void): void;
+	on<T extends EventData>(event: string, callback: (data: T) => void): void;
 	emit<T extends object>(event: string, data?: T): void;
 	trigger<T extends object>(event: string, context?: Partial<T>): (data: T) => void;
+}
+
+type EventData = {
+	name: string
 }
 
 // Хорошая практика — даже простые типы выносить в алиасы.
@@ -30,7 +34,7 @@ export class EventEmitter implements IEvents {
 	/**
 	 * Установить обработчик на событие
 	 */
-	on<T>(eventName: string, callback: (event: T) => void) {
+	on<T extends EventData>(eventName: string, callback: (event: T) => void) {
 		if (!this._events.has(eventName)) {
 			this._events.set(eventName, new Set<Subscriber>());
 		}
@@ -60,13 +64,6 @@ export class EventEmitter implements IEvents {
 		if (this._events.has("*")) {
 			this._events.get(("*"))!.forEach(callback => callback({ eventName, data }));
 		}
-	}
-
-	/**
-	 * Слушать все события, например для логов
-	 */
-	onAll(callback: (event: EmitterEvent) => void) {
-		this.on("*", callback);
 	}
 
 	/**
