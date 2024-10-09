@@ -1,4 +1,3 @@
-import './index.css';
 import { cardsList } from './components/cardsList.js';
 import { openCard } from './components/card.js';
 import { playBGMusic, playVictorySound } from './components/audio.js';

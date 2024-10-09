@@ -1,0 +1,15 @@
+export const main = {
+    card: '.card',
+    card_flip: '.card-flip',
+    backside: '.backside',
+    card_complete: '.card__complete',
+    playground: '.playground',
+    card_side: '.card__side',
+    card_front: '.card__side_front',
+    card_back: '.card__side_back',
+    card_img: '.card__img',
+    header: '.header',
+    header_title: '.header__title',
+    footer: '.footer',
+    footer_text: '.footer__text',
+}

@@ -5,99 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlipFlop</title>
+    <style>
+        .menu__item {
+            width: 100px;
+            height: 100px;
+        }
+
+        .menu__item img {
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    </style>
 </head>
 
 <body class="content">
-
-    <template id="header">
-        <header class="header">
-            <h1 class="header__title">FlipCatFlop</h1>
-        </header>
-    </template>
-
-    <template id="footer">
-        <footer class="footer">
-            <p class="footer__text">v2.1</p>
-            <p class="footer__text">created by mute</p>
-        </footer>
-    </template>
-
-    <template id="win">
-        <div class="win">
-            <div class="win__block">
-                <h2 class="win__text">Congratulations!</h2>
-            </div>
-        </div>
-    </template>
-
-    <template id="entry-form">
-        <form class="form" name="start-form">
-            <p class="form__title">Select the difficulty</p>
-            <ul class="form__level-difficult-list">
-                <li class="form__item">
-                    <label class="form__label">
-                        <img class="form__img" src="<%=require('./img/easy.png')%>" alt="easy" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="6" checked/>
-                        Easy
-                    </label>
-                </li>
-                <li class="form__item">
-                    <label class="form__label">
-                        <img class="form__img" src="<%=require('./img/medium.png')%>" alt="medium" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="10"/>
-                        Medium
-                    </label>
-                </li>
-                <li class="form__item">
-                    <label class="form__label" for="hard">
-                        <img class="form__img" src="<%=require('./img/hard.png')%>" alt="hard" draggable="false">
-                        <input class="form__radio visually-hidden" name="place" type="radio" value="15" id="hard"/>
-                        Hard
-                    </label>
-                </li>
-            </ul>
-            <input class="button form__submit-button" type="submit" value="Play!" />
-        </form>
-    </template>
-
-    <template id="playground">
-        <div class="playground">
-            <div class="playground__header">
-                <div class="playground__header-item">
-                    <h2 class="playground__header-title">Cards</h2>
-                    <p class="playground__header-text" id="cards"></p>
-                </div>
-            </div>
-            <div class="playground__place"></div>
-        </div>
-    </template>
-
-    <template id="menu">
-        <div class="menu">
-            <button class="button menu__button">Menu</button>
-            <button class="button menu__button">Reset</button>
-        </div>
-    </template>
-
-    <template id="card">
-        <div class="card">
-            <div class="card__side card__side_front">
-                <img class="card__img backside" src="" alt="">
-            </div>
-            <div class="card__side card__side_back">
-                <img class="card__img" src="<%=require('../src/img/flip.png')%>" alt="flip">
-            </div>
-        </div>
-    </template>
     
-    <form name="play-music-question" class="play-music-question">
-        <fieldset class="play-music-question__block">
-            <h2 class="play-music-question__title">Do you want to turn the music on?</h2>
-            <input class="button play-music-question__button" type="submit" value="Turn on all sounds">
-            <input class="button play-music-question__button" type="submit" value="Play without music">
-            <input class="button play-music-question__button" type="submit" value="Turn off all">
-        </fieldset>
-    </form>
 </body>
 
 </html>
