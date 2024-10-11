@@ -1,4 +1,5 @@
 import { main } from "../types/main";
+import { MenuElement } from "./ViewMenu";
 
 interface ICard {
     src: string;
@@ -8,7 +9,7 @@ interface ICard {
 export abstract class TemplateBuilder {
     constructor() {}
 
-    static createMenuElement(src: string, alt: string): HTMLElement {
+    static createMenuElement(src: string, alt: string,): HTMLElement {
         const d = document.createElement('div');
         d.classList.add('menu__item');
         const img = document.createElement('img');
@@ -17,6 +18,14 @@ export abstract class TemplateBuilder {
         img.alt = alt;
         d.append(img);
         return d;
+    }
+
+    static createMenuItem(src: string, name: string, children: MenuElement[]): MenuElement {
+        return {
+            element: this.createMenuElement(src, name),
+            name: name,
+            children: children
+        };
     }
 
     static createCard(front: ICard, back: ICard): string {

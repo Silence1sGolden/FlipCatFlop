@@ -6,21 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlipFlop</title>
     <style>
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .menu__item {
-            width: 100px;
-            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            width: 65px;
+            height: 65px;
         }
 
         .menu__item img {
             width: 100%;
             object-fit: contain;
             object-position: center;
+            border-radius: 100%;
         }
     </style>
 </head>
 
-<body class="content">
-    
+<body>
+    <div class="content">
+
+    </div>
+    <input type="range" id="range" max="1" min="0" step="0.1">
 </body>
 
 </html>

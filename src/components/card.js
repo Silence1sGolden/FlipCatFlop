@@ -1,7 +1,7 @@
 import flopImg from '../img/flop.png';
 const flop = flopImg;
 import { areYouWinnig, soundsSetting } from '../index.js';
-import { playCardFlipSound } from './audio.js';
+import { playCardFlipSound } from './AudioController.js';
 
 function openCard(evt) {
     const card = evt.target.closest('.card');

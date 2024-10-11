@@ -1,4 +1,7 @@
 // Интерфейс для инверсии зависимости, чтобы использовать в другом коде,
+
+import { Settings } from "./AudioController";
+
 // не связываясь с конкретной реализацией
 interface IEvents {
 	on<T extends EventData>(event: string, callback: (data: T) => void): void;
@@ -7,7 +10,8 @@ interface IEvents {
 }
 
 type EventData = {
-	name: string
+	name?: string,
+	settings?: Settings
 }
 
 // Хорошая практика — даже простые типы выносить в алиасы.
